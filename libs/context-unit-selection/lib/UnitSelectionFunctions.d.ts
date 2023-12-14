@@ -1,0 +1,20 @@
+import { UnitSelection, UnitSelectionAction, UnitSelectionState } from "./UnitSelectionContext";
+export declare const selectUnique: (s: UnitSelection, a: UnitSelectionAction) => UnitSelection;
+export declare const selectUniqueNext: (s: UnitSelection, a: UnitSelectionAction) => UnitSelection;
+export declare const selectUniquePrevious: (s: UnitSelection, a: UnitSelectionAction) => UnitSelection;
+export declare const selectUniqueFirst: (s: UnitSelection, a: UnitSelectionAction) => UnitSelection;
+export declare const selectUniqueLast: (s: UnitSelection, a: UnitSelectionAction) => UnitSelection;
+export declare const setSelectionExplicit: (s: UnitSelection, a: UnitSelectionAction) => UnitSelection;
+export declare const allUnitSelectionState: (s: {
+    selectedUnitIds: Set<number | string>;
+    orderedUnitIds: (number | string)[];
+    visibleUnitIds?: (number | string)[];
+}) => UnitSelectionState;
+export declare const toggleSelectedUnit: (s: UnitSelection, a: UnitSelectionAction) => UnitSelection;
+export declare const toggleSelectedRange: (s: UnitSelection, a: UnitSelectionAction) => UnitSelection;
+export declare const toggleSelectAll: (s: UnitSelection) => UnitSelection;
+export declare const getCheckboxClickHandlerGenerator: (reducer: React.Dispatch<UnitSelectionAction>) => (unitId: number | string) => (evt: React.MouseEvent) => void;
+export declare const getPlotClickHandlerGenerator: (reducer: React.Dispatch<UnitSelectionAction>) => (unitId: number | string) => (evt: React.MouseEvent) => void;
+export declare const checkboxClick: (unitId: number | string, reducer: React.Dispatch<UnitSelectionAction>, evt: React.MouseEvent) => void;
+export declare const plotElementClick: (unitId: number | string, reducer: React.Dispatch<UnitSelectionAction>, evt: React.MouseEvent) => void;
+export declare const voidClickHandler: (evt: React.MouseEvent) => void;
