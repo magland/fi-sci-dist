@@ -159,7 +159,11 @@ window.addEventListener("message", (e) => {
   if (h)
     return;
   const t = e.data;
-  t.type === "initializeFigure" && (h = { parentOrigin: t.parentOrigin, figureId: t.figureId, s: t.s }, H.forEach((r) => {
+  t.type === "initializeFigure" && (h = {
+    parentOrigin: t.parentOrigin,
+    figureId: t.figureId,
+    s: t.s
+  }, H.forEach((r) => {
     r();
   }));
 });
@@ -242,10 +246,7 @@ const M = new Me(), Ce = (e) => {
   type: l("messageToBackend"),
   figureId: i,
   message: () => !0
-}), Pe = (e) => O([
-  Ee,
-  Oe
-])(e), Te = async (e, t, r = {}) => {
+}), Pe = (e) => O([Ee, Oe])(e), Te = async (e, t, r = {}) => {
   const s = {
     type: "getFileData",
     uri: e
@@ -291,7 +292,11 @@ const M = new Me(), Ce = (e) => {
     throw Error("Invalid response to storeFile");
   if (r.error)
     throw Error(`Error storing file data: ${r.error}`);
-}, X = {}, Be = ({ uri: e, loaded: t, total: r }) => {
+}, X = {}, Be = ({
+  uri: e,
+  loaded: t,
+  total: r
+}) => {
   const s = X[e];
   s && s({ loaded: t, total: r });
 }, Ye = (e, t = {}) => {
@@ -307,7 +312,10 @@ const M = new Me(), Ce = (e) => {
     } };
   }, []);
   return B(() => {
-    o(void 0), s(void 0), Te(e, c, { startByte: t.startByte, endByte: t.endByte }).then((p) => {
+    o(void 0), s(void 0), Te(e, c, {
+      startByte: t.startByte,
+      endByte: t.endByte
+    }).then((p) => {
       s(p);
     }).catch((p) => {
       o(p.message);
@@ -332,15 +340,19 @@ K().then((e) => {
 });
 const I = () => T || $e, Y = te.createContext({}), Ge = (e) => {
 }, Ze = () => {
-  const e = re(Y), { urlState: t, setUrlState: r } = e, s = Q((n) => {
-    const o = { ...t || I() };
-    let d = !1;
-    for (const c in n) {
-      const p = n[c], m = (t || I())[c];
-      p === void 0 && m !== void 0 ? (delete o[c], d = !0) : (p !== void 0 && m === void 0 || E(p) !== E(m)) && (o[c] = p, d = !0);
-    }
-    d && r && r(o);
-  }, [t, r]);
+  const e = re(Y), { urlState: t, setUrlState: r } = e, s = Q(
+    // eslint-disable-next-line @typescript-eslint/no-explicit-any
+    (n) => {
+      const o = { ...t || I() };
+      let d = !1;
+      for (const c in n) {
+        const p = n[c], m = (t || I())[c];
+        p === void 0 && m !== void 0 ? (delete o[c], d = !0) : (p !== void 0 && m === void 0 || E(p) !== E(m)) && (o[c] = p, d = !0);
+      }
+      d && r && r(o);
+    },
+    [t, r]
+  );
   return {
     urlState: t || I(),
     setUrlState: r || Ge,
@@ -402,7 +414,14 @@ const ze = Ne(window.location.href), tt = () => {
     const t = e.data;
     if (t)
       if (Ie(t))
-        t.type === "figurlResponse" ? qe(t) : t.type === "setCurrentUser" ? Ce({ userId: t.userId, googleIdToken: t.googleIdToken }) : t.type === "fileDownloadProgress" ? Be({ uri: t.uri, loaded: t.loaded, total: t.total }) : t.type === "reportUrlStateChange" && ke(t.state);
+        t.type === "figurlResponse" ? qe(t) : t.type === "setCurrentUser" ? Ce({
+          userId: t.userId,
+          googleIdToken: t.googleIdToken
+        }) : t.type === "fileDownloadProgress" ? Be({
+          uri: t.uri,
+          loaded: t.loaded,
+          total: t.total
+        }) : t.type === "reportUrlStateChange" && ke(t.state);
       else if (Pe(t)) {
         if (ze.parentOrigin) {
           console.warn("Got message to parent even though parentOrigin is defined");

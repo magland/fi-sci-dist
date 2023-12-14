@@ -73,45 +73,66 @@ const l = b({
   const e = _(l);
   if (!e)
     throw Error("useTimeSelection() must be used within a TimeSelectionContextProvider");
-  const i = e.dispatch, S = n((m, T) => {
-    i({
-      type: "report_total_time_range",
-      startTimeSec: m,
-      endTimeSec: T
-    });
-  }, [i]), c = n((m, T) => {
-    i({
-      type: "set_visible_time_range",
-      visibleStartTimeSec: m,
-      visibleEndTimeSec: T
-    });
-  }, [i]), r = n((m) => {
-    i({
-      type: "set_current_time",
-      currentTimeSec: m
-    });
-  }, [i]), t = n((m) => {
-    i({
-      type: "set_current_time_fraction",
-      fraction: m
-    });
-  }, [i]), o = n((m) => {
-    i({
-      type: "pan_time_selection",
-      deltaSec: m
-    });
-  }, [i]), d = n((m, T) => {
-    i({
-      type: "zoom_time_selection",
-      anchorTimeSec: T,
-      factor: m
-    });
-  }, [i]), s = n((m) => {
-    i({
-      type: "pan_time_selection_pct",
-      pct: m
-    });
-  }, [i]);
+  const i = e.dispatch, S = n(
+    (m, T) => {
+      i({
+        type: "report_total_time_range",
+        startTimeSec: m,
+        endTimeSec: T
+      });
+    },
+    [i]
+  ), c = n(
+    (m, T) => {
+      i({
+        type: "set_visible_time_range",
+        visibleStartTimeSec: m,
+        visibleEndTimeSec: T
+      });
+    },
+    [i]
+  ), r = n(
+    (m) => {
+      i({
+        type: "set_current_time",
+        currentTimeSec: m
+      });
+    },
+    [i]
+  ), t = n(
+    (m) => {
+      i({
+        type: "set_current_time_fraction",
+        fraction: m
+      });
+    },
+    [i]
+  ), o = n(
+    (m) => {
+      i({
+        type: "pan_time_selection",
+        deltaSec: m
+      });
+    },
+    [i]
+  ), d = n(
+    (m, T) => {
+      i({
+        type: "zoom_time_selection",
+        anchorTimeSec: T,
+        factor: m
+      });
+    },
+    [i]
+  ), s = n(
+    (m) => {
+      i({
+        type: "pan_time_selection_pct",
+        pct: m
+      });
+    },
+    [i]
+  );
   return {
     startTimeSec: e.state.startTimeSec,
     endTimeSec: e.state.endTimeSec,

@@ -1,6 +1,11 @@
 import { jsx as i, jsxs as k } from "react/jsx-runtime";
 import d, { useMemo as v, useState as w, useEffect as h } from "react";
-const A = ({ widths: e, height: n, spacing: r = 0, children: t }) => {
+const A = ({
+  widths: e,
+  height: n,
+  spacing: r = 0,
+  children: t
+}) => {
   const o = e.reduce((a, u) => a + u, 0), l = d.Children.toArray(t).map((a) => a), s = v(() => {
     const a = [];
     let u = 0;
@@ -12,18 +17,67 @@ const A = ({ widths: e, height: n, spacing: r = 0, children: t }) => {
     className: "HBoxLayout",
     style: { position: "relative", width: o, height: n },
     // eslint-disable-next-line @typescript-eslint/no-explicit-any
-    children: l.map((a, u) => a ? /* @__PURE__ */ i("div", { style: { position: "absolute", overflow: "hidden", background: "white", left: s[u], top: 0, width: e[u], height: n }, children: /* @__PURE__ */ i(a.type, { ...a.props, width: e[u], height: n }) }, u) : /* @__PURE__ */ i("span", {}))
+    children: l.map((a, u) => a ? /* @__PURE__ */ i(
+      "div",
+      {
+        style: {
+          position: "absolute",
+          overflow: "hidden",
+          background: "white",
+          left: s[u],
+          top: 0,
+          width: e[u],
+          height: n
+        },
+        children: /* @__PURE__ */ i(a.type, { ...a.props, width: e[u], height: n })
+      },
+      u
+    ) : /* @__PURE__ */ i("span", {}))
   });
-}, N = ({ children: e, onClick: n, color: r, disabled: t, href: o, target: l }) => o ? /* @__PURE__ */ i("a", { href: o, target: l, style: { cursor: "pointer", color: r || "darkblue" }, children: e }) : t ? /* @__PURE__ */ i("span", { style: { color: "gray" }, children: e }) : (
+}, N = ({
+  children: e,
+  onClick: n,
+  color: r,
+  disabled: t,
+  href: o,
+  target: l
+}) => o ? /* @__PURE__ */ i("a", { href: o, target: l, style: { cursor: "pointer", color: r || "darkblue" }, children: e }) : t ? /* @__PURE__ */ i("span", { style: { color: "gray" }, children: e }) : (
   // eslint-disable-next-line jsx-a11y/anchor-is-valid
   /* @__PURE__ */ i("a", { onClick: n, style: { cursor: "pointer", color: r || "darkblue" }, children: e })
 );
-const S = ({ icon: e, onClick: n, title: r, label: t, disabled: o, fontSize: l }) => {
+const S = ({
+  icon: e,
+  onClick: n,
+  title: r,
+  label: t,
+  disabled: o,
+  fontSize: l
+}) => {
   const s = ["SmallIconButton"];
-  return o ? s.push("disabled") : s.push("enabled"), /* @__PURE__ */ k("span", { className: s.join(" "), title: r, onClick: o ? void 0 : n, style: { cursor: "pointer", fontSize: (l || 18) * 0.8, whiteSpace: "nowrap" }, children: [
-    e && /* @__PURE__ */ i(e.type, { className: s.join(" "), ...e.props, style: { fontSize: l || 18, verticalAlign: "bottom" } }),
-    t && /* @__PURE__ */ i("span", { style: { marginLeft: 4, verticalAlign: "bottom" }, children: t })
-  ] });
+  return o ? s.push("disabled") : s.push("enabled"), /* @__PURE__ */ k(
+    "span",
+    {
+      className: s.join(" "),
+      title: r,
+      onClick: o ? void 0 : n,
+      style: {
+        cursor: "pointer",
+        fontSize: (l || 18) * 0.8,
+        whiteSpace: "nowrap"
+      },
+      children: [
+        e && /* @__PURE__ */ i(
+          e.type,
+          {
+            className: s.join(" "),
+            ...e.props,
+            style: { fontSize: l || 18, verticalAlign: "bottom" }
+          }
+        ),
+        t && /* @__PURE__ */ i("span", { style: { marginLeft: 4, verticalAlign: "bottom" }, children: t })
+      ]
+    }
+  );
 };
 function p() {
   const { innerWidth: e, innerHeight: n } = window;
@@ -46,7 +100,22 @@ const j = () => {
     className: "VBoxLayout",
     style: { position: "relative", width: e, height: t },
     // eslint-disable-next-line @typescript-eslint/no-explicit-any
-    children: o.map((l, s) => l ? /* @__PURE__ */ i("div", { style: { position: "absolute", overflow: "hidden", background: "white", left: 0, top: n.slice(0, s).reduce((a, u) => a + u, 0), width: e, height: n[s] }, children: /* @__PURE__ */ i(l.type, { ...l.props, width: e, height: n[s] }) }, s) : /* @__PURE__ */ i("span", {}))
+    children: o.map((l, s) => l ? /* @__PURE__ */ i(
+      "div",
+      {
+        style: {
+          position: "absolute",
+          overflow: "hidden",
+          background: "white",
+          left: 0,
+          top: n.slice(0, s).reduce((a, u) => a + u, 0),
+          width: e,
+          height: n[s]
+        },
+        children: /* @__PURE__ */ i(l.type, { ...l.props, width: e, height: n[s] })
+      },
+      s
+    ) : /* @__PURE__ */ i("span", {}))
   });
 }, L = (e) => e !== null && typeof e == "string", y = (e) => e !== null && typeof e == "function", $ = (e) => e !== null && typeof e == "number", z = (e) => e === null, H = (e) => e !== null && typeof e == "boolean", W = (e) => (n) => {
   for (let r of e)
@@ -104,7 +173,9 @@ const j = () => {
     } else {
       if (!(o in e))
         return t.callback && t.callback(`Key not in x: ${o}`), !1;
-      if (!b(e[o], l, { callback: t.callback }))
+      if (!b(e[o], l, {
+        callback: t.callback
+      }))
         return t.callback && t.callback(`Value of key > ${o} < itself failed validation.`), !1;
     }
   }

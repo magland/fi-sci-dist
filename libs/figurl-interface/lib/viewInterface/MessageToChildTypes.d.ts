@@ -1,4 +1,4 @@
-import { FigurlResponse } from "./FigurlRequestTypes";
+import { FigurlResponse } from './FigurlRequestTypes';
 export type FigurlResponseMessage = {
     type: 'figurlResponse';
     requestId: string;

@@ -1,4 +1,4 @@
-import React, { PropsWithChildren } from "react";
+import React, { PropsWithChildren } from 'react';
 type HBoxLayoutProps = {
     widths: number[];
     height: number;

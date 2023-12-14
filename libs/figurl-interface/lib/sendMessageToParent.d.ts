@@ -1,4 +1,4 @@
-import { MessageToParent } from "./viewInterface/MessageToParentTypes";
+import { MessageToParent } from './viewInterface/MessageToParentTypes';
 declare const sendMessageToParent: (x: MessageToParent, { parentOrigin }: {
     parentOrigin: string;
 }) => void;

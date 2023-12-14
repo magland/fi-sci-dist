@@ -1,5 +1,5 @@
-import React from "react";
-import { SortingCallback, SortingRule } from "./UnitSelectionTypes";
+import React from 'react';
+import { SortingCallback, SortingRule } from './UnitSelectionTypes';
 export type UnitSelection = {
     selectedUnitIds: Set<number | string>;
     currentUnitId: number | string | undefined;
@@ -26,8 +26,7 @@ export type UnitSelectionAction = {
     ascending?: boolean;
 };
 export type UnitSelectionState = 'all' | 'none' | 'partial';
-export type UnitSelectionActionType = 'SET_SELECTION' | 'UNIQUE_SELECT' | 'UNIQUE_SELECT_NEXT' | 'UNIQUE_SELECT_PREVIOUS' | 'UNIQUE_SELECT_FIRST' | 'UNIQUE_SELECT_LAST' | 'TOGGLE_UNIT' | 'TOGGLE_RANGE' | 'TOGGLE_SELECT_ALL' | 'DESELECT_ALL' | 'INITIALIZE_UNITS' | 'SET_UNIT_ORDER' | 'UPDATE_SORT_FIELDS' | 'SET_VISIBLE_UNITS' | // 'SET_WINDOW_SIZE' | 'SET_PAGE_NUMBER' |
-'COPY_STATE' | 'SET_RESTRICTED_UNITS' | 'REDISTRIBUTE_UNIT_COLORS';
+export type UnitSelectionActionType = 'SET_SELECTION' | 'UNIQUE_SELECT' | 'UNIQUE_SELECT_NEXT' | 'UNIQUE_SELECT_PREVIOUS' | 'UNIQUE_SELECT_FIRST' | 'UNIQUE_SELECT_LAST' | 'TOGGLE_UNIT' | 'TOGGLE_RANGE' | 'TOGGLE_SELECT_ALL' | 'DESELECT_ALL' | 'INITIALIZE_UNITS' | 'SET_UNIT_ORDER' | 'UPDATE_SORT_FIELDS' | 'SET_VISIBLE_UNITS' | 'COPY_STATE' | 'SET_RESTRICTED_UNITS' | 'REDISTRIBUTE_UNIT_COLORS';
 export declare const SET_SELECTION: UnitSelectionActionType;
 export declare const UNIQUE_SELECT: UnitSelectionActionType;
 export declare const UNIQUE_SELECT_NEXT: UnitSelectionActionType;

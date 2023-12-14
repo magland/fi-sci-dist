@@ -185,9 +185,12 @@ function sleepMsec(msec) {
     if (!h)
       return;
     const t = new Worker(URL.createObjectURL(new Blob([z], { type: "text/javascript" }))), e = h.transferControlToOffscreen();
-    return t.postMessage({
-      canvas: e
-    }, [e]), A(t), () => {
+    return t.postMessage(
+      {
+        canvas: e
+      },
+      [e]
+    ), A(t), () => {
       t.terminate();
     };
   }, [h]);
@@ -202,7 +205,10 @@ function sleepMsec(msec) {
       plotData: C
     });
   }, [C, n]);
-  const { canvasWidth: E, canvasHeight: d, margins: s } = j({ width: S, height: y });
+  const { canvasWidth: E, canvasHeight: d, margins: s } = j({
+    width: S,
+    height: y
+  });
   u(() => {
     if (!n || r === void 0 || x === void 0)
       return;
@@ -218,18 +224,42 @@ function sleepMsec(msec) {
     n.postMessage({
       opts: t
     });
-  }, [E, d, s, r, x, n, I, k]);
-  const T = a.length, p = c((t) => {
-    const e = 1 - (t.y - s.top) / (d - s.top - s.bottom), o = Math.round(e * T - 0.5);
-    if (0 <= o && o < T)
-      return a[o].unitId;
-  }, [d, a, s, T]), V = c((t) => {
-    const e = t.currentTarget.getBoundingClientRect(), o = { x: t.clientX - e.x, y: t.clientY - e.y }, l = p(o);
-    t.shiftKey || t.ctrlKey ? g({ type: "TOGGLE_UNIT", targetUnit: l }) : g({ type: "UNIQUE_SELECT", targetUnit: l });
-  }, [p, g]), L = c((t) => {
-    const e = t.currentTarget.getBoundingClientRect(), o = { x: t.clientX - e.x, y: t.clientY - e.y }, l = p(o);
-    l !== void 0 && U(l);
-  }, [p]), X = c((t) => {
+  }, [
+    E,
+    d,
+    s,
+    r,
+    x,
+    n,
+    I,
+    k
+  ]);
+  const T = a.length, p = c(
+    (t) => {
+      const e = 1 - (t.y - s.top) / (d - s.top - s.bottom), o = Math.round(e * T - 0.5);
+      if (0 <= o && o < T)
+        return a[o].unitId;
+    },
+    [d, a, s, T]
+  ), V = c(
+    (t) => {
+      const e = t.currentTarget.getBoundingClientRect(), o = {
+        x: t.clientX - e.x,
+        y: t.clientY - e.y
+      }, l = p(o);
+      t.shiftKey || t.ctrlKey ? g({ type: "TOGGLE_UNIT", targetUnit: l }) : g({ type: "UNIQUE_SELECT", targetUnit: l });
+    },
+    [p, g]
+  ), L = c(
+    (t) => {
+      const e = t.currentTarget.getBoundingClientRect(), o = {
+        x: t.clientX - e.x,
+        y: t.clientY - e.y
+      }, l = p(o);
+      l !== void 0 && U(l);
+    },
+    [p]
+  ), X = c((t) => {
     U(void 0);
   }, []);
   return r === void 0 ? /* @__PURE__ */ M("div", { children: "Loading..." }) : /* @__PURE__ */ M(

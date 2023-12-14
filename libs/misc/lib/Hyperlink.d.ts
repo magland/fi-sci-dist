@@ -1,4 +1,4 @@
-import { FunctionComponent, PropsWithChildren } from "react";
+import { FunctionComponent, PropsWithChildren } from 'react';
 type Props = {
     onClick?: () => void;
     color?: string;

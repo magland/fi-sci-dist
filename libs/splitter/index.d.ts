@@ -1,2 +1,2 @@
-import Splitter from "./lib/Splitter";
+import Splitter from './lib/Splitter';
 export { Splitter };

@@ -1,4 +1,4 @@
-import { Canceler } from "./helpers";
+import { Canceler } from './helpers';
 export type RemoteH5FileX = RemoteH5File | MergedRemoteH5File;
 export type RemoteH5Group = {
     path: string;
@@ -56,7 +56,7 @@ export declare class RemoteH5File {
 }
 export declare class MergedRemoteH5File {
     #private;
-    constructor(files: (RemoteH5File)[]);
+    constructor(files: RemoteH5File[]);
     get dataIsRemote(): boolean;
     getGroup(path: string): Promise<RemoteH5Group | undefined>;
     getDataset(path: string): Promise<RemoteH5Dataset | undefined>;

@@ -41,7 +41,7 @@ class W {
       }), setTimeout(() => {
         n(new Error("timeout"));
       }, 6e4 * 3);
-    }, R(this, y, S("https://cdn.jsdelivr.net/gh/magland/remote-h5-worker@0.1.0/dist/RemoteH5Worker.js"));
+    }, R(this, y, S("https://cdn.jsdelivr.net/gh/magland/remote-h5-worker@0.1.2/dist/RemoteH5Worker.js"));
   }
   get numRunningRequests() {
     return i(this, g) ? 1 : 0;
@@ -55,7 +55,12 @@ class W {
   async postRequest(t, e) {
     const o = Math.random().toString();
     return await new Promise((r, a) => {
-      i(this, l).push({ requestId: o, request: t, onResolved: r, onRejected: a }), e.onCancel.push(() => {
+      i(this, l).push({
+        requestId: o,
+        request: t,
+        onResolved: r,
+        onRejected: a
+      }), e.onCancel.push(() => {
         const c = i(this, l).findIndex((q) => q.requestId === o);
         c >= 0 && (i(this, l).splice(c, 1), a(new Error("canceled")));
       }), this._processPendingRequests();
@@ -117,12 +122,15 @@ class M {
     const o = { onCancel: [] };
     let n;
     try {
-      n = await D({
-        type: "getGroup",
-        url: this.metaUrl || this.url,
-        path: t,
-        chunkSize: this.metaUrl ? C : I
-      }, o);
+      n = await D(
+        {
+          type: "getGroup",
+          url: this.metaUrl || this.url,
+          path: t,
+          chunkSize: this.metaUrl ? C : I
+        },
+        o
+      );
     } catch {
       i(this, f)[t] = { success: !1 };
       return;
@@ -145,12 +153,15 @@ class M {
     const o = { onCancel: [] };
     let n;
     try {
-      n = await D({
-        type: "getDataset",
-        url: this.metaUrl || this.url,
-        path: t,
-        chunkSize: this.metaUrl ? C : I
-      }, o);
+      n = await D(
+        {
+          type: "getDataset",
+          url: this.metaUrl || this.url,
+          path: t,
+          chunkSize: this.metaUrl ? C : I
+        },
+        o
+      );
     } catch {
       i(this, d)[t] = { success: !1 };
       return;
@@ -171,13 +182,16 @@ class M {
     const { slice: r, allowBigInt: a, canceler: c } = e, q = { onCancel: [] };
     let E;
     try {
-      E = await D({
-        type: "getDatasetData",
-        url: n,
-        path: t,
-        slice: r,
-        chunkSize: n === this.metaUrl ? C : I
-      }, c || q);
+      E = await D(
+        {
+          type: "getDatasetData",
+          url: n,
+          path: t,
+          slice: r,
+          chunkSize: n === this.metaUrl ? C : I
+        },
+        c || q
+      );
     } catch {
       return;
     }

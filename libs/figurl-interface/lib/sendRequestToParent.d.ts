@@ -1,5 +1,5 @@
-import { FigurlRequest } from "./viewInterface/FigurlRequestTypes";
-import { FigurlResponseMessage } from "./viewInterface/MessageToChildTypes";
+import { FigurlRequest } from './viewInterface/FigurlRequestTypes';
+import { FigurlResponseMessage } from './viewInterface/MessageToChildTypes';
 export declare const handleFigurlResponse: (msg: FigurlResponseMessage) => void;
 export declare const waitForInitialization: () => Promise<{
     parentOrigin: string;

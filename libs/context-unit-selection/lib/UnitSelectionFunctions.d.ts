@@ -1,4 +1,4 @@
-import { UnitSelection, UnitSelectionAction, UnitSelectionState } from "./UnitSelectionContext";
+import { UnitSelection, UnitSelectionAction, UnitSelectionState } from './UnitSelectionContext';
 export declare const selectUnique: (s: UnitSelection, a: UnitSelectionAction) => UnitSelection;
 export declare const selectUniqueNext: (s: UnitSelection, a: UnitSelectionAction) => UnitSelection;
 export declare const selectUniquePrevious: (s: UnitSelection, a: UnitSelectionAction) => UnitSelection;

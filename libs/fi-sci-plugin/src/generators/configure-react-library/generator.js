@@ -19,11 +19,11 @@ function configureReactLibraryGenerator(tree, options) {
         (0, devkit_1.generateFiles)(tree, path.join(__dirname, 'files'), projectRoot, options);
         (0, devkit_1.updateJson)(tree, `${projectRoot}/package.json`, (pkgJson) => {
             pkgJson.exports = {
-                ".": {
-                    "types": "./index.d.ts",
-                    "import": "./index.mjs",
-                    "require": "./index.js"
-                }
+                '.': {
+                    types: './index.d.ts',
+                    import: './index.mjs',
+                    require: './index.js',
+                },
             };
             // we want to keep the peerDependencies that are already there
             const peerDependencies = pkgJson.peerDependencies || {};
@@ -107,9 +107,7 @@ const getExternalDependenciesInTsCode = (sourceCode) => {
     const dependencies = [];
     const visit = (node) => {
         if (ts.isImportDeclaration(node)) {
-            let moduleName = node.moduleSpecifier.getText()
-                .replace(/'/g, '')
-                .replace(/"/g, '');
+            let moduleName = node.moduleSpecifier.getText().replace(/'/g, '').replace(/"/g, '');
             if (!moduleName.startsWith('.')) {
                 if (moduleName.startsWith('@')) {
                     // it's a scoped package, so we need to get the next part

@@ -159,7 +159,10 @@ const ue = (e) => {
   };
 }, v = (e, t) => {
   if (e.lastClickedId === void 0)
-    return e.orderedUnitIds.length === 0 ? e : u(e, { type: o, targetUnit: e.orderedUnitIds[0] });
+    return e.orderedUnitIds.length === 0 ? e : u(e, {
+      type: o,
+      targetUnit: e.orderedUnitIds[0]
+    });
   const n = e.orderedUnitIds.indexOf(e.lastClickedId);
   if (n < 0)
     return e;
@@ -173,7 +176,13 @@ const ue = (e) => {
     return e;
   const r = e.orderedUnitIds[n - 1];
   return r === void 0 ? e : u(e, { type: o, targetUnit: r });
-}, O = (e, t) => e.orderedUnitIds.length === 0 ? e : u(e, { type: o, targetUnit: e.orderedUnitIds[0] }), A = (e, t) => e.orderedUnitIds.length === 0 ? e : u(e, { type: o, targetUnit: e.orderedUnitIds[e.orderedUnitIds.length - 1] }), k = (e, t) => ({
+}, O = (e, t) => e.orderedUnitIds.length === 0 ? e : u(e, {
+  type: o,
+  targetUnit: e.orderedUnitIds[0]
+}), A = (e, t) => e.orderedUnitIds.length === 0 ? e : u(e, {
+  type: o,
+  targetUnit: e.orderedUnitIds[e.orderedUnitIds.length - 1]
+}), k = (e, t) => ({
   ...e,
   currentUnitId: (t.incomingSelectedUnitIds || [])[0],
   selectedUnitIds: new Set(t.incomingSelectedUnitIds ?? [])
@@ -198,8 +207,13 @@ const ue = (e) => {
     return console.warn(`Cannot toggle range with undefined limit: last-clicked ${r}, target ${d}`), e;
   const s = i.findIndex((a) => a === r), l = i.findIndex((a) => a === d);
   if (s === -1 || l === -1)
-    throw Error(`Requested to toggle unit range from ID ${r} to ID ${d} but one of these was not found.`);
-  const b = i.slice(Math.min(s, l), Math.max(s, l) + 1);
+    throw Error(
+      `Requested to toggle unit range from ID ${r} to ID ${d} but one of these was not found.`
+    );
+  const b = i.slice(
+    Math.min(s, l),
+    Math.max(s, l) + 1
+  );
   return n.has(d) ? b.forEach((a) => n.delete(a)) : b.forEach((a) => n.add(a)), e.currentUnitId ? n.has(e.currentUnitId) || (e.currentUnitId = [...n][0]) : e.currentUnitId = [...n][0], {
     ...e,
     lastClickedId: d,
@@ -322,7 +336,11 @@ const ue = (e) => {
     case W:
       return G(e);
     case j:
-      return { ...e, selectedUnitIds: /* @__PURE__ */ new Set(), currentUnitId: void 0 };
+      return {
+        ...e,
+        selectedUnitIds: /* @__PURE__ */ new Set(),
+        currentUnitId: void 0
+      };
     case ee:
       return H(e, t);
     case te:
@@ -353,7 +371,16 @@ const ue = (e) => {
   }
   // this empty sortingSelectionDispatch function gets replaced by the xxContext.Provider element in App.tsx.
 }), fe = () => {
-  const { unitSelection: e, unitSelectionDispatch: t } = se(), n = f(() => D(t), [t]), r = f(() => Q(t), [t]), i = f(() => oe(e.orderedUnitIds, e.restrictedUnitIds), [e.orderedUnitIds, e.restrictedUnitIds]);
+  const { unitSelection: e, unitSelectionDispatch: t } = se(), n = f(
+    () => D(t),
+    [t]
+  ), r = f(
+    () => Q(t),
+    [t]
+  ), i = f(
+    () => oe(e.orderedUnitIds, e.restrictedUnitIds),
+    [e.orderedUnitIds, e.restrictedUnitIds]
+  );
   return {
     selectedUnitIds: e.selectedUnitIds,
     currentUnitId: e.currentUnitId,

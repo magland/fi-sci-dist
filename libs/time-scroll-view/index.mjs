@@ -8,10 +8,30 @@ import { FaSearchPlus as St, FaSearchMinus as Pt, FaArrowLeft as Mt, FaArrowRigh
 import { FormGroup as Lt, Switch as Ct } from "@mui/material";
 import { SmallIconButton as _t } from "@fi-sci/misc";
 const ut = 6, O = 3, Z = 15, $ = 20, Rt = ({ width: t, height: e, hideVisibleTimeRange: n }) => {
-  const { currentTimeSec: o, setCurrentTime: i, startTimeSec: r, endTimeSec: a, visibleStartTimeSec: s, visibleEndTimeSec: l, setVisibleTimeRange: f } = Y(), d = b(() => (u) => u * t, [t]), m = b(() => (u) => u / t, [t]), { x0: S, x1: M, x2: F, y1: x, y2: p } = b(() => {
+  const {
+    currentTimeSec: o,
+    setCurrentTime: i,
+    startTimeSec: r,
+    endTimeSec: a,
+    visibleStartTimeSec: s,
+    visibleEndTimeSec: l,
+    setVisibleTimeRange: f
+  } = Y(), d = b(
+    () => (u) => u * t,
+    [t]
+  ), m = b(
+    () => (u) => u / t,
+    [t]
+  ), { x0: S, x1: M, x2: F, y1: x, y2: p } = b(() => {
     const u = r ?? 0, g = a ?? 1;
     if (g <= u)
-      return { x0: 0, x1: void 0, x2: void 0, y1: void 0, y2: void 0 };
+      return {
+        x0: 0,
+        x1: void 0,
+        x2: void 0,
+        y1: void 0,
+        y2: void 0
+      };
     const H = o !== void 0 ? d((o - u) / (g - u)) : 0, w = s !== void 0 ? d((s - u) / (g - u)) : void 0, k = l !== void 0 ? d((l - u) / (g - u)) : void 0;
     let _ = w, R = k;
     if (w !== void 0 && k !== void 0 && k - w < Z) {
@@ -19,27 +39,87 @@ const ut = 6, O = 3, Z = 15, $ = 20, Rt = ({ width: t, height: e, hideVisibleTim
       _ = P - Z / 2, R = P + Z / 2;
     }
     return { x0: H, x1: w, x2: k, y1: _, y2: R };
-  }, [r, a, o, s, l, d]), [y, C] = W(!1), B = T((u) => {
-    if (y)
-      return;
-    const g = u.currentTarget.getBoundingClientRect(), H = { x: u.clientX - g.x, y: u.clientY - g.y }, w = m(H.x), k = r ?? 0, R = k + w * ((a ?? 1) - k);
-    i(R);
-    const P = s !== void 0 && l !== void 0 ? l - s : void 0, D = P !== void 0 ? Math.max(R - P / 2, k) : void 0, L = P !== void 0 && D !== void 0 ? D + P : void 0;
-    D !== void 0 && L !== void 0 && f(D, L);
-  }, [y, m, r, a, i, s, l, f]), [z, J] = W({ x: 0, y: 0 }), N = T((u, g) => {
+  }, [r, a, o, s, l, d]), [y, C] = W(!1), B = T(
+    (u) => {
+      if (y)
+        return;
+      const g = u.currentTarget.getBoundingClientRect(), H = {
+        x: u.clientX - g.x,
+        y: u.clientY - g.y
+      }, w = m(H.x), k = r ?? 0, R = k + w * ((a ?? 1) - k);
+      i(R);
+      const P = s !== void 0 && l !== void 0 ? l - s : void 0, D = P !== void 0 ? Math.max(R - P / 2, k) : void 0, L = P !== void 0 && D !== void 0 ? D + P : void 0;
+      D !== void 0 && L !== void 0 && f(D, L);
+    },
+    [
+      y,
+      m,
+      r,
+      a,
+      i,
+      s,
+      l,
+      f
+    ]
+  ), [z, J] = W({ x: 0, y: 0 }), N = T((u, g) => {
     C(!0);
-  }, []), v = T((u, g) => {
-    const H = g.x, w = r ?? 0, k = a ?? 1, _ = s !== void 0 ? s : w, P = d((_ - w) / (k - w)) + H, D = m(P), L = w + D * (k - w), G = L + (l ?? 1) - (s ?? 0), U = o !== void 0 ? o - _ + L : void 0;
-    U !== void 0 && L <= U && U <= G && i(U), f(L, G), J({ x: 0, y: 0 }), C(!1);
-  }, [i, d, r, a, m, s, l, f, o]);
+  }, []), v = T(
+    (u, g) => {
+      const H = g.x, w = r ?? 0, k = a ?? 1, _ = s !== void 0 ? s : w, P = d((_ - w) / (k - w)) + H, D = m(P), L = w + D * (k - w), G = L + (l ?? 1) - (s ?? 0), U = o !== void 0 ? o - _ + L : void 0;
+      U !== void 0 && L <= U && U <= G && i(U), f(L, G), J({ x: 0, y: 0 }), C(!1);
+    },
+    [
+      i,
+      d,
+      r,
+      a,
+      m,
+      s,
+      l,
+      f,
+      o
+    ]
+  );
   return /* @__PURE__ */ j(
     "div",
     {
-      style: { position: "absolute", left: 0, top: 0, width: t, height: e, backgroundColor: "white", userSelect: "none" },
+      style: {
+        position: "absolute",
+        left: 0,
+        top: 0,
+        width: t,
+        height: e,
+        backgroundColor: "white",
+        userSelect: "none"
+      },
       onMouseUp: B,
       children: [
-        /* @__PURE__ */ h("div", { style: { position: "absolute", left: 0, top: ut, width: t, height: e - ut * 2, backgroundColor: "lightgray" } }),
-        /* @__PURE__ */ h("div", { style: { position: "absolute", left: S - 1, top: 0, width: 3, height: e, backgroundColor: "red" } }),
+        /* @__PURE__ */ h(
+          "div",
+          {
+            style: {
+              position: "absolute",
+              left: 0,
+              top: ut,
+              width: t,
+              height: e - ut * 2,
+              backgroundColor: "lightgray"
+            }
+          }
+        ),
+        /* @__PURE__ */ h(
+          "div",
+          {
+            style: {
+              position: "absolute",
+              left: S - 1,
+              top: 0,
+              width: 3,
+              height: e,
+              backgroundColor: "red"
+            }
+          }
+        ),
         M !== void 0 && F !== void 0 && x !== void 0 && p !== void 0 && !n && /* @__PURE__ */ h(
           kt,
           {
@@ -47,7 +127,32 @@ const ut = 6, O = 3, Z = 15, $ = 20, Rt = ({ width: t, height: e, hideVisibleTim
             onDrag: (u, g) => N(u, g),
             onStop: (u, g) => v(u, g),
             position: z,
-            children: /* @__PURE__ */ h("div", { style: { position: "absolute", left: x, top: O, width: p - x + 1, height: e - O * 2, backgroundColor: "black" }, children: /* @__PURE__ */ h("div", { style: { position: "absolute", left: M - x, top: 0, width: F - M + 1, height: e - O * 2, backgroundColor: "gray" } }) })
+            children: /* @__PURE__ */ h(
+              "div",
+              {
+                style: {
+                  position: "absolute",
+                  left: x,
+                  top: O,
+                  width: p - x + 1,
+                  height: e - O * 2,
+                  backgroundColor: "black"
+                },
+                children: /* @__PURE__ */ h(
+                  "div",
+                  {
+                    style: {
+                      position: "absolute",
+                      left: M - x,
+                      top: 0,
+                      width: F - M + 1,
+                      height: e - O * 2,
+                      backgroundColor: "gray"
+                    }
+                  }
+                )
+              }
+            )
           }
         )
       ]
@@ -141,7 +246,10 @@ const jt = (t) => /* @__PURE__ */ h("span", { title: t.title, children: /* @__PU
   },
   t.elementIndex
 ) }, t.elementIndex + "-span"), Wt = (t) => t.useHorizontalLayout ? /* @__PURE__ */ h("span", {}) : /* @__PURE__ */ h("hr", {}, t.elementIndex), Yt = (t) => {
-  const e = Number.isFinite(t.content) ? t.content : 0, n = t.contentSigFigs || 0, o = Math.abs(e - Math.round(e)) * 10 ** (n + 1) < 1, i = Number.isFinite(t.content) ? o && !t.contentAlwaysShowDecimal ? Math.round(e) + "" : e.toFixed(t.contentSigFigs || 2) : t.content || "", r = t.useHorizontalLayout ? "span" : "div";
+  const e = Number.isFinite(t.content) ? (
+    // eslint-disable-next-line @typescript-eslint/no-explicit-any
+    t.content
+  ) : 0, n = t.contentSigFigs || 0, o = Math.abs(e - Math.round(e)) * 10 ** (n + 1) < 1, i = Number.isFinite(t.content) ? o && !t.contentAlwaysShowDecimal ? Math.round(e) + "" : e.toFixed(t.contentSigFigs || 2) : t.content || "", r = t.useHorizontalLayout ? "span" : "div";
   return yt.createElement(
     r,
     {
@@ -213,22 +321,24 @@ const jt = (t) => /* @__PURE__ */ h("span", { title: t.title, children: /* @__PU
   const e = b(() => qt(t.customActions), [t.customActions]), n = b(
     () => e.map((r, a) => /* @__PURE__ */ h(Et, { ...r, useHorizontalLayout: t.useHorizontalLayout }, a)),
     [e, t.useHorizontalLayout]
-  ), o = b(() => ({
-    width: t.width,
-    height: t.height - (t.top || 0),
-    top: t.top ?? 0,
-    paddingTop: t.topPadding ?? 0
-  }), [t.width, t.height, t.top, t.topPadding]), i = t.useHorizontalLayout ? "HorizontalToolbar" : "VerticalToolbar";
+  ), o = b(
+    () => ({
+      width: t.width,
+      height: t.height - (t.top || 0),
+      top: t.top ?? 0,
+      paddingTop: t.topPadding ?? 0
+    }),
+    [t.width, t.height, t.top, t.topPadding]
+  ), i = t.useHorizontalLayout ? "HorizontalToolbar" : "VerticalToolbar";
   return /* @__PURE__ */ h("div", { className: i, style: { ...o }, children: n });
 }, mt = { type: "divider" }, Qt = (t) => {
   const { aboveDefault: e, belowDefault: n } = t || {}, { zoomTimeSelection: o, panTimeSelectionPct: i } = Y();
   return b(() => {
-    const a = e ? [...e, mt] : [], s = n ? [mt, ...n] : [], l = Kt({ zoomTimeSelection: o, panTimeSelectionPct: i });
-    return [
-      ...a,
-      ...l,
-      ...s
-    ];
+    const a = e ? [...e, mt] : [], s = n ? [mt, ...n] : [], l = Kt({
+      zoomTimeSelection: o,
+      panTimeSelectionPct: i
+    });
+    return [...a, ...l, ...s];
   }, [o, i, e, n]);
 }, At = (t) => {
   t && (t._hasFocus = !0);
@@ -237,12 +347,18 @@ const jt = (t) => /* @__PURE__ */ h("span", { title: t.title, children: /* @__PU
 }, te = (t, e, n, o, i) => {
   const r = E(void 0), a = T(() => {
     r.current && (i ? window.cancelAnimationFrame(r.current) : window.clearTimeout(r.current), r.current = void 0);
-  }, [r, i]), s = T((f) => {
-    e(n, o), r.current = void 0;
-  }, [r, n, e, o]);
-  return { throttler: T((f) => {
-    t(n, f) && !r.current && (r.current = i ? window.requestAnimationFrame(s) : window.setTimeout(s, i));
-  }, [r, t, s, n, i]), cancelThrottled: a };
+  }, [r, i]), s = T(
+    (f) => {
+      e(n, o), r.current = void 0;
+    },
+    [r, n, e, o]
+  );
+  return { throttler: T(
+    (f) => {
+      t(n, f) && !r.current && (r.current = i ? window.requestAnimationFrame(s) : window.setTimeout(s, i));
+    },
+    [r, t, s, n, i]
+  ), cancelThrottled: a };
 }, ee = (t, e) => {
   const { panStateRef: n } = t, { mouseX: o } = e;
   return !n.current.panning || n.current.pannedX === o ? !1 : (n.current.pannedX = o, !0);
@@ -266,9 +382,12 @@ const jt = (t) => /* @__PURE__ */ h("span", { title: t.title, children: /* @__PU
   var e;
   return ((e = t.current) == null ? void 0 : e.panning) ?? !1;
 }, ce = (t, e, n) => {
-  const o = E({}), i = b(() => ({ divElmt: t, panStateRef: o }), [t, o]), { throttler: r, cancelThrottled: a } = oe(i, e, n), s = T((m) => {
-    ie(o, m, a);
-  }, [o, a]), l = T((m) => re(o, m), [o]), f = T(() => ae(o, a), [o, a]), d = T(() => se(o), [o]);
+  const o = E({}), i = b(() => ({ divElmt: t, panStateRef: o }), [t, o]), { throttler: r, cancelThrottled: a } = oe(i, e, n), s = T(
+    (m) => {
+      ie(o, m, a);
+    },
+    [o, a]
+  ), l = T((m) => re(o, m), [o]), f = T(() => ae(o, a), [o, a]), d = T(() => se(o), [o]);
   return {
     setPanUpdate: r,
     resetAnchor: s,
@@ -276,31 +395,58 @@ const jt = (t) => /* @__PURE__ */ h("span", { title: t.title, children: /* @__PU
     clearPan: f,
     isPanning: d
   };
-}, le = (t, e) => T((n) => {
-  const o = n.clientX - n.currentTarget.getBoundingClientRect().x - t, i = Math.max(0, Math.min(1, o / e));
-  return { mouseX: o, fraction: i };
-}, [t, e]), de = (t, e, n) => T((i) => {
-  if (t) {
-    const { mouseX: r } = e(i);
-    n(r);
-  }
-}, [t, e, n]), ue = (t, e) => T((o) => {
-  t && (e(), It(t));
-}, [t, e]), he = (t, e, n) => T((i) => {
-  if (t) {
-    const { fraction: r } = e(i);
-    n(r, { event: i }), At(t);
-  }
-}, [e, n, t]), me = (t, e, n, o) => T((r) => {
-  t && (e() || n(r), o());
-}, [t, e, n, o]), ge = (t, e, n, o) => T((r) => {
-  if (!t)
-    return;
-  const { mouseX: a } = e(r);
-  n(a), o({ mouseX: a });
-}, [t, e, n, o]), fe = (t, e, n, o) => {
-  const { setCurrentTimeFraction: i, panTimeSelection: r } = Y(), a = le(t, e), s = b(() => n / e, [n, e]), { setPanUpdate: l, resetAnchor: f, startPan: d, clearPan: m, isPanning: S } = ce(o, s, r), M = he(o, a, i), F = de(o, a, f), x = me(o, S, M, m), p = ge(o, a, d, l), y = ue(o, m);
-  return b(() => ({ handleMouseUp: x, handleMouseMove: p, handleMouseDown: F, handleMouseLeave: y }), [x, p, F, y]);
+}, le = (t, e) => T(
+  (n) => {
+    const o = n.clientX - n.currentTarget.getBoundingClientRect().x - t, i = Math.max(0, Math.min(1, o / e));
+    return { mouseX: o, fraction: i };
+  },
+  [t, e]
+), de = (t, e, n) => T(
+  (i) => {
+    if (t) {
+      const { mouseX: r } = e(i);
+      n(r);
+    }
+  },
+  [t, e, n]
+), ue = (t, e) => T(
+  (o) => {
+    t && (e(), It(t));
+  },
+  [t, e]
+), he = (t, e, n) => T(
+  (i) => {
+    if (t) {
+      const { fraction: r } = e(i);
+      n(r, { event: i }), At(t);
+    }
+  },
+  [e, n, t]
+), me = (t, e, n, o) => T(
+  (r) => {
+    t && (e() || n(r), o());
+  },
+  [t, e, n, o]
+), ge = (t, e, n, o) => T(
+  (r) => {
+    if (!t)
+      return;
+    const { mouseX: a } = e(r);
+    n(a), o({ mouseX: a });
+  },
+  [t, e, n, o]
+), fe = (t, e, n, o) => {
+  const { setCurrentTimeFraction: i, panTimeSelection: r } = Y(), a = le(t, e), s = b(() => n / e, [n, e]), { setPanUpdate: l, resetAnchor: f, startPan: d, clearPan: m, isPanning: S } = ce(
+    o,
+    s,
+    r
+  ), M = he(o, a, i), F = de(o, a, f), x = me(o, S, M, m), p = ge(o, a, d, l), y = ue(o, m);
+  return b(() => ({
+    handleMouseUp: x,
+    handleMouseMove: p,
+    handleMouseDown: F,
+    handleMouseLeave: y
+  }), [x, p, F, y]);
 }, be = [
   {
     name: "1ms",
@@ -409,20 +555,16 @@ const jt = (t) => /* @__PURE__ */ h("span", { title: t.title, children: /* @__PU
     m && m.canvas && r(m, a);
   }, [r, s, a]);
   const d = { ...Te, ...o ? { top: o } : {}, ...i ? { left: i } : {} };
-  return /* @__PURE__ */ h(
-    "canvas",
-    {
-      ref: s,
-      width: e,
-      height: n,
-      style: d
-    }
-  );
+  return /* @__PURE__ */ h("canvas", { ref: s, width: e, height: n, style: d });
 }, ye = (t, e) => {
   const { width: n, height: o, margins: i, timeTicks: r, gridlineOpts: a, yTickSet: s } = e;
   t.clearRect(0, 0, t.canvas.width, t.canvas.height);
   const l = o - i.bottom;
-  we(t, r, l, i.top, { hideGridlines: a == null ? void 0 : a.hideX }), t.strokeStyle = "black", q(t, i.left, l, n - i.right, l), s && ke(t, s, l, i.left, n - i.right, i.top, { hideGridlines: a == null ? void 0 : a.hideY });
+  we(t, r, l, i.top, {
+    hideGridlines: a == null ? void 0 : a.hideX
+  }), t.strokeStyle = "black", q(t, i.left, l, n - i.right, l), s && ke(t, s, l, i.left, n - i.right, i.top, {
+    hideGridlines: a == null ? void 0 : a.hideY
+  });
 }, we = (t, e, n, o, i) => {
   if (!e || e.length === 0)
     return;
@@ -445,18 +587,13 @@ const jt = (t) => /* @__PURE__ */ h("span", { title: t.title, children: /* @__PU
 }, q = (t, e, n, o, i) => {
   t.beginPath(), t.moveTo(e, n), t.lineTo(o, i), t.stroke();
 }, Se = {}, Pe = (t) => {
-  const { width: e, height: n } = t, o = T((i) => {
-    ye(i, t);
-  }, [t]);
-  return /* @__PURE__ */ h(
-    bt,
-    {
-      width: e,
-      height: n,
-      draw: o,
-      drawData: Se
-    }
+  const { width: e, height: n } = t, o = T(
+    (i) => {
+      ye(i, t);
+    },
+    [t]
   );
+  return /* @__PURE__ */ h(bt, { width: e, height: n, draw: o, drawData: Se });
 }, Me = (t, e) => {
   const { margins: n, currentTimePixels: o, currentTimeIntervalPixels: i } = e;
   if (t.clearRect(0, 0, t.canvas.width, t.canvas.height), i !== void 0) {
@@ -466,48 +603,85 @@ const jt = (t) => /* @__PURE__ */ h("span", { title: t.title, children: /* @__PU
   }
   o !== void 0 && i === void 0 && (t.strokeStyle = "red", t.beginPath(), t.moveTo(o, n.top), t.lineTo(o, t.canvas.height - n.bottom), t.stroke());
 }, xe = (t) => {
-  const { width: e, height: n, timeRange: o, currentTimePixels: i, currentTimeIntervalPixels: r, margins: a } = t, s = b(() => ({
-    width: e,
-    height: n,
-    timeRange: o,
-    currentTimePixels: i,
-    currentTimeIntervalPixels: r,
-    margins: a
-  }), [e, n, o, i, r, a]);
-  return /* @__PURE__ */ h(
-    bt,
-    {
+  const { width: e, height: n, timeRange: o, currentTimePixels: i, currentTimeIntervalPixels: r, margins: a } = t, s = b(
+    () => ({
       width: e,
       height: n,
-      draw: Me,
-      drawData: s
-    }
+      timeRange: o,
+      currentTimePixels: i,
+      currentTimeIntervalPixels: r,
+      margins: a
+    }),
+    [e, n, o, i, r, a]
   );
+  return /* @__PURE__ */ h(bt, { width: e, height: n, draw: Me, drawData: s });
 }, gt = {
   left: 45,
   right: 20,
   top: 20,
   bottom: 40
-}, Le = ({ width: t, height: e, hideToolbar: n, leftMargin: o }) => {
-  const i = b(() => ({
-    ...gt,
-    left: o || gt.left
-  }), [o]), r = n ? 0 : Gt, a = t - r;
+}, Le = ({
+  width: t,
+  height: e,
+  hideToolbar: n,
+  leftMargin: o
+}) => {
+  const i = b(
+    () => ({
+      ...gt,
+      left: o || gt.left
+    }),
+    [o]
+  ), r = n ? 0 : Gt, a = t - r;
   return {
     margins: i,
     canvasWidth: a,
     canvasHeight: e,
     toolbarWidth: r
   };
-}, Ve = ({ width: t, height: e, onCanvasElement: n, gridlineOpts: o, onKeyDown: i, onMouseDown: r, onMouseMove: a, onMouseOut: s, onMouseUp: l, hideToolbar: f, yAxisInfo: d, shiftZoom: m, additionalToolbarItems: S, showTimeSelectionBar: M, leftMargin: F }) => {
-  const { currentTimeSec: x, visibleStartTimeSec: p, visibleEndTimeSec: y, zoomTimeSelection: C, panTimeSelectionPct: B } = Y(), z = b(() => [p, y], [p, y]), N = e - (M ? $ : 0), { margins: v, canvasWidth: u, canvasHeight: g, toolbarWidth: H } = Le({ width: t, height: N, hideToolbar: f, leftMargin: F }), w = b(() => p === void 0 || y === void 0 ? () => 0 : y <= p ? () => 0 : (c) => v.left + (c - p) / (y - p) * (u - v.left - v.right), [u, p, y, v]), k = b(() => p === void 0 || y === void 0 ? () => 0 : y <= p ? () => 0 : (c) => p + (c - v.left) / (u - v.left - v.right) * (y - p), [u, p, y, v]), _ = b(() => {
+}, Ve = ({
+  width: t,
+  height: e,
+  onCanvasElement: n,
+  gridlineOpts: o,
+  onKeyDown: i,
+  onMouseDown: r,
+  onMouseMove: a,
+  onMouseOut: s,
+  onMouseUp: l,
+  hideToolbar: f,
+  yAxisInfo: d,
+  shiftZoom: m,
+  additionalToolbarItems: S,
+  showTimeSelectionBar: M,
+  leftMargin: F
+}) => {
+  const { currentTimeSec: x, visibleStartTimeSec: p, visibleEndTimeSec: y, zoomTimeSelection: C, panTimeSelectionPct: B } = Y(), z = b(
+    () => [p, y],
+    [p, y]
+  ), N = e - (M ? $ : 0), { margins: v, canvasWidth: u, canvasHeight: g, toolbarWidth: H } = Le({
+    width: t,
+    height: N,
+    hideToolbar: f,
+    leftMargin: F
+  }), w = b(() => p === void 0 || y === void 0 ? () => 0 : y <= p ? () => 0 : (c) => v.left + (c - p) / (y - p) * (u - v.left - v.right), [u, p, y, v]), k = b(() => p === void 0 || y === void 0 ? () => 0 : y <= p ? () => 0 : (c) => p + (c - v.left) / (u - v.left - v.right) * (y - p), [u, p, y, v]), _ = b(() => {
     const c = (d == null ? void 0 : d.yMin) || 0, X = (d == null ? void 0 : d.yMax) || 0;
     return X <= c ? () => 0 : (K) => g - v.bottom - (K - c) / (X - c) * (g - v.top - v.bottom);
-  }, [d, g, v]), R = ve(u, p, y, w), P = Bt({ datamin: (d == null ? void 0 : d.yMin) || 0, datamax: (d == null ? void 0 : d.yMax) || 0, pixelHeight: g - v.left - v.right }), D = b(() => ({
-    datamin: P.datamin,
-    datamax: P.datamax,
-    ticks: P.ticks.map((c) => ({ ...c, pixelValue: _(c.dataValue) }))
-  }), [P, _]), L = b(() => /* @__PURE__ */ h(
+  }, [d, g, v]), R = ve(u, p, y, w), P = Bt({
+    datamin: (d == null ? void 0 : d.yMin) || 0,
+    datamax: (d == null ? void 0 : d.yMax) || 0,
+    pixelHeight: g - v.left - v.right
+  }), D = b(
+    () => ({
+      datamin: P.datamin,
+      datamax: P.datamax,
+      ticks: P.ticks.map((c) => ({
+        ...c,
+        pixelValue: _(c.dataValue)
+      }))
+    }),
+    [P, _]
+  ), L = b(() => /* @__PURE__ */ h(
     Pe,
     {
       width: u,
@@ -518,7 +692,10 @@ const jt = (t) => /* @__PURE__ */ h("span", { title: t.title, children: /* @__PU
       yTickSet: d != null && d.showTicks ? D : void 0,
       gridlineOpts: o
     }
-  ), [o, u, g, z, v, R, d == null ? void 0 : d.showTicks, D]), G = b(() => x !== void 0 ? w(x) : void 0, [x, w]), U = b(() => /* @__PURE__ */ h(
+  ), [o, u, g, z, v, R, d == null ? void 0 : d.showTicks, D]), G = b(
+    () => x !== void 0 ? w(x) : void 0,
+    [x, w]
+  ), U = b(() => /* @__PURE__ */ h(
     xe,
     {
       width: u,
@@ -538,23 +715,46 @@ const jt = (t) => /* @__PURE__ */ h("span", { title: t.title, children: /* @__PU
       V.removeEventListener("wheel", c);
     };
   }, [V]);
-  const vt = (y ?? 0) - (p ?? 0), { handleMouseDown: A, handleMouseUp: I, handleMouseLeave: tt, handleMouseMove: et } = fe(v.left, u - v.left - v.right, vt, V), [, nt] = W(void 0), ot = T((c) => {
-    if (m && !c.shiftKey || c.deltaY === 0)
-      return;
-    const X = c.clientX - c.currentTarget.getBoundingClientRect().x, K = k(X), pt = -c.deltaY / 100;
-    C(pt > 0 ? 1.1 : 1 / 1.1, K);
-  }, [C, k, m]), it = T((c) => {
-    c.key === "=" ? C(1.3) : c.key === "-" ? C(1 / 1.3) : c.key === "ArrowRight" ? B(0.3) : c.key === "ArrowLeft" && B(-0.3), i && i(c);
-  }, [i, C, B]), rt = T((c) => {
-    !c.shiftKey && !c.ctrlKey && !c.altKey ? A(c) : r && r(c);
-  }, [A, r]), at = T((c) => {
-    !c.shiftKey && !c.ctrlKey && !c.altKey ? I(c) : l && l(c);
-  }, [I, l]), st = T((c) => {
-    const X = c.clientX - c.currentTarget.getBoundingClientRect().x, K = k(X);
-    nt(K), !c.shiftKey && !c.ctrlKey && !c.altKey && et(c), a && a(c);
-  }, [et, a, k]), ct = T((c) => {
-    nt(void 0), !c.shiftKey && !c.ctrlKey && !c.altKey && tt(c), s && s(c);
-  }, [tt, s]), lt = b(() => /* @__PURE__ */ j(
+  const vt = (y ?? 0) - (p ?? 0), { handleMouseDown: A, handleMouseUp: I, handleMouseLeave: tt, handleMouseMove: et } = fe(
+    v.left,
+    u - v.left - v.right,
+    vt,
+    V
+  ), [, nt] = W(void 0), ot = T(
+    (c) => {
+      if (m && !c.shiftKey || c.deltaY === 0)
+        return;
+      const X = c.clientX - c.currentTarget.getBoundingClientRect().x, K = k(X), pt = -c.deltaY / 100;
+      C(pt > 0 ? 1.1 : 1 / 1.1, K);
+    },
+    [C, k, m]
+  ), it = T(
+    (c) => {
+      c.key === "=" ? C(1.3) : c.key === "-" ? C(1 / 1.3) : c.key === "ArrowRight" ? B(0.3) : c.key === "ArrowLeft" && B(-0.3), i && i(c);
+    },
+    [i, C, B]
+  ), rt = T(
+    (c) => {
+      !c.shiftKey && !c.ctrlKey && !c.altKey ? A(c) : r && r(c);
+    },
+    [A, r]
+  ), at = T(
+    (c) => {
+      !c.shiftKey && !c.ctrlKey && !c.altKey ? I(c) : l && l(c);
+    },
+    [I, l]
+  ), st = T(
+    (c) => {
+      const X = c.clientX - c.currentTarget.getBoundingClientRect().x, K = k(X);
+      nt(K), !c.shiftKey && !c.ctrlKey && !c.altKey && et(c), a && a(c);
+    },
+    [et, a, k]
+  ), ct = T(
+    (c) => {
+      nt(void 0), !c.shiftKey && !c.ctrlKey && !c.altKey && tt(c), s && s(c);
+    },
+    [tt, s]
+  ), lt = b(() => /* @__PURE__ */ j(
     "div",
     {
       style: {
@@ -575,7 +775,11 @@ const jt = (t) => /* @__PURE__ */ h("span", { title: t.title, children: /* @__PU
         /* @__PURE__ */ h(
           "canvas",
           {
-            style: { position: "absolute", width: u, height: g },
+            style: {
+              position: "absolute",
+              width: u,
+              height: g
+            },
             ref: n,
             width: u,
             height: g
@@ -584,9 +788,44 @@ const jt = (t) => /* @__PURE__ */ h("span", { title: t.title, children: /* @__PU
         U
       ]
     }
-  ), [n, L, U, u, g, it, ot, rt, at, st, ct]), Tt = Qt({ belowDefault: S }), dt = M ? /* @__PURE__ */ j("div", { style: { position: "absolute", width: u, height: e }, children: [
-    /* @__PURE__ */ h("div", { style: { position: "absolute", width: u, height: $ }, children: /* @__PURE__ */ h(Rt, { width: u, height: $ - 5 }) }),
-    /* @__PURE__ */ h("div", { style: { position: "absolute", top: $, width: u, height: e - $ }, children: lt })
+  ), [
+    n,
+    L,
+    U,
+    u,
+    g,
+    it,
+    ot,
+    rt,
+    at,
+    st,
+    ct
+  ]), Tt = Qt({
+    belowDefault: S
+  }), dt = M ? /* @__PURE__ */ j("div", { style: { position: "absolute", width: u, height: e }, children: [
+    /* @__PURE__ */ h(
+      "div",
+      {
+        style: {
+          position: "absolute",
+          width: u,
+          height: $
+        },
+        children: /* @__PURE__ */ h(Rt, { width: u, height: $ - 5 })
+      }
+    ),
+    /* @__PURE__ */ h(
+      "div",
+      {
+        style: {
+          position: "absolute",
+          top: $,
+          width: u,
+          height: e - $
+        },
+        children: lt
+      }
+    )
   ] }) : lt;
   return f ? /* @__PURE__ */ h("div", { ref: (c) => Q(c), style: { position: "absolute", width: t, height: e, background: "white" }, children: dt }) : /* @__PURE__ */ h(
     "div",

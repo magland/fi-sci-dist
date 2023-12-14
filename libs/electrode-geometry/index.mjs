@@ -1,6 +1,10 @@
 import { jsx as R } from "react/jsx-runtime";
 import { useState as C, useMemo as v, useEffect as z, useCallback as W } from "react";
-const V = ({ width: e, height: o, electrodeLocations: s }) => {
+const V = ({
+  width: e,
+  height: o,
+  electrodeLocations: s
+}) => {
   const [x, c] = C(void 0), n = v(() => {
     const { xmin: t, xmax: i, ymin: r, ymax: a } = H(s), y = i - t, m = a - r;
     return F(y, m, e, o) ? s.map((p) => ({ x: p.y, y: p.x })) : s;
@@ -10,16 +14,27 @@ const V = ({ width: e, height: o, electrodeLocations: s }) => {
     for (const y of [1, 2]) {
       const m = t + 2, d = t + 2, p = t + 2, T = t + 2 + j, I = e - m - d, B = o - p - T, N = I / i, G = B / r, S = Math.min(N, G), U = m + (I - i * S) / 2, X = p + (B - r * S) / 2, Y = a * S;
       if (t = Math.max(1, Math.floor(Y / 2 * 0.8)), y === 2)
-        return { isotropicScale: S, xPixelOffset: U, yPixelOffset: X, markerPixelRadius: t };
+        return {
+          isotropicScale: S,
+          xPixelOffset: U,
+          yPixelOffset: X,
+          markerPixelRadius: t
+        };
     }
     throw Error("Unexpected");
-  }, [n, e, o, l, P, u, g]), k = v(() => (t, i) => {
-    const r = h + (t - l) * f, a = E + (i - u) * f;
-    return { xp: r, yp: a };
-  }, [h, E, l, u, f]), O = v(() => (t, i) => {
-    const r = l + (t - h) / f, a = u + (i - E) / f;
-    return { x: r, y: a };
-  }, [h, E, l, u, f]), [b, q] = C(void 0);
+  }, [n, e, o, l, P, u, g]), k = v(
+    () => (t, i) => {
+      const r = h + (t - l) * f, a = E + (i - u) * f;
+      return { xp: r, yp: a };
+    },
+    [h, E, l, u, f]
+  ), O = v(
+    () => (t, i) => {
+      const r = l + (t - h) / f, a = u + (i - E) / f;
+      return { x: r, y: a };
+    },
+    [h, E, l, u, f]
+  ), [b, q] = C(void 0);
   z(() => {
     if (!b)
       return;
@@ -38,29 +53,27 @@ const V = ({ width: e, height: o, electrodeLocations: s }) => {
       t.beginPath(), t.moveTo(m, p), t.lineTo(d, T), t.stroke(), t.font = "12px sans-serif", t.textAlign = "center", t.textBaseline = "top", t.fillText("100 μm", (m + d) / 2, T + 5);
     }
     i();
-  }, [b, e, o, n, M, x, f, k, g]);
-  const A = W((t) => {
-    const { x: i, y: r } = O(t.nativeEvent.offsetX, t.nativeEvent.offsetY), a = K(n, i, r, M / f / 0.8);
-    c(a);
-  }, [O, n, M, f]), D = W(() => {
+  }, [
+    b,
+    e,
+    o,
+    n,
+    M,
+    x,
+    f,
+    k,
+    g
+  ]);
+  const A = W(
+    (t) => {
+      const { x: i, y: r } = O(t.nativeEvent.offsetX, t.nativeEvent.offsetY), a = K(n, i, r, M / f / 0.8);
+      c(a);
+    },
+    [O, n, M, f]
+  ), D = W(() => {
     c(void 0);
   }, []);
-  return /* @__PURE__ */ R(
-    "div",
-    {
-      style: { position: "absolute", width: e, height: o },
-      onMouseMove: A,
-      onMouseLeave: D,
-      children: /* @__PURE__ */ R(
-        "canvas",
-        {
-          ref: (t) => t && q(t),
-          width: e,
-          height: o
-        }
-      )
-    }
-  );
+  return /* @__PURE__ */ R("div", { style: { position: "absolute", width: e, height: o }, onMouseMove: A, onMouseLeave: D, children: /* @__PURE__ */ R("canvas", { ref: (t) => t && q(t), width: e, height: o }) });
 }, H = (e) => {
   if (e.length === 0)
     return { xmin: 0, xmax: 0, ymin: 0, ymax: 0 };

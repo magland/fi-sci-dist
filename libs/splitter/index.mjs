@@ -2,7 +2,16 @@ import { jsx as l, jsxs as E } from "react/jsx-runtime";
 import { useState as F, useEffect as M } from "react";
 import N from "react-draggable";
 const L = 10, X = 4, Y = 2, _ = N, U = (h) => {
-  const { width: t, height: e, initialPosition: k, onChange: m, adjustable: g = !0, positionFromRight: b = !1, direction: o = "horizontal", hideSecondChild: x } = h, s = o === "horizontal" ? t : e, [p, y] = F(k);
+  const {
+    width: t,
+    height: e,
+    initialPosition: k,
+    onChange: m,
+    adjustable: g = !0,
+    positionFromRight: b = !1,
+    direction: o = "horizontal",
+    hideSecondChild: x
+  } = h, s = o === "horizontal" ? t : e, [p, y] = F(k);
   if (M(() => {
     p > s - 4 ? y(s - 4) : p < 4 && s > 20 && y(4);
   }, [p, t, s]), !h.children)
@@ -73,11 +82,21 @@ const L = 10, X = 4, Y = 2, _ = N, U = (h) => {
     y(G), m && m(G);
   };
   return /* @__PURE__ */ E("div", { className: "splitter", style: { ...S, position: "relative", overflow: "hidden" }, children: [
-    /* @__PURE__ */ l("div", { style: { ...I, position: "absolute", overflow: "hidden" }, className: "SplitterChild", children: /* @__PURE__ */ l(n.type, { ...n.props, width: o === "horizontal" ? c : t, height: o === "horizontal" ? e : c }) }, "child1"),
+    /* @__PURE__ */ l("div", { style: { ...I, position: "absolute", overflow: "hidden" }, className: "SplitterChild", children: /* @__PURE__ */ l(
+      n.type,
+      {
+        ...n.props,
+        width: o === "horizontal" ? c : t,
+        height: o === "horizontal" ? e : c
+      }
+    ) }, "child1"),
     g && !x && /* @__PURE__ */ l(
       _,
       {
-        position: { x: o === "horizontal" ? f - i / 2 - r : 0, y: o === "horizontal" ? 0 : f - i / 2 - r },
+        position: {
+          x: o === "horizontal" ? f - i / 2 - r : 0,
+          y: o === "horizontal" ? 0 : f - i / 2 - r
+        },
         axis: o === "horizontal" ? "x" : "y",
         onDrag: (z, a) => j(),
         onStop: (z, a) => A(z, a),
@@ -85,7 +104,14 @@ const L = 10, X = 4, Y = 2, _ = N, U = (h) => {
       },
       "drag"
     ),
-    /* @__PURE__ */ l("div", { style: { ...P, position: "absolute", overflow: "hidden" }, className: "SplitterChild", children: /* @__PURE__ */ l(d.type, { ...d.props, width: o === "horizontal" ? w : t, height: o === "horizontal" ? e : w }) }, "child2")
+    /* @__PURE__ */ l("div", { style: { ...P, position: "absolute", overflow: "hidden" }, className: "SplitterChild", children: /* @__PURE__ */ l(
+      d.type,
+      {
+        ...d.props,
+        width: o === "horizontal" ? w : t,
+        height: o === "horizontal" ? e : w
+      }
+    ) }, "child2")
   ] });
 };
 export {

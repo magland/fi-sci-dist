@@ -359,34 +359,52 @@ function sleepMsec(msec) {
 ///////////////////////////////////////////////////////////////////////////////////////////////////////////
 // export { }
 `, N = ({ data: o, width: i, height: n }) => {
-  const { visibleStartTimeSec: f, visibleEndTimeSec: h, reportTotalTimeRange: g, setVisibleTimeRange: b } = Z(), { datasets: S, series: T, legendOpts: w, timeOffset: x, yRange: r, gridlineOpts: I, hideToolbar: R } = o, s = d(() => T.map((e) => {
-    const t = S.filter((F) => F.name === e.dataset)[0];
-    if (t === void 0)
-      throw Error(`Dataset not found in series: ${e.dataset}`);
-    return {
-      ...e,
-      t: t.data[e.encoding.t],
-      y: t.data[e.encoding.y]
-    };
-  }), [T, S]), { minTime: D, maxTime: C } = d(() => ({
-    minTime: p(s.map((e) => p(e.t))),
-    maxTime: u(s.map((e) => u(e.t)))
-  }), [s]), { minValue: c, maxValue: l } = d(() => r ? { minValue: r[0], maxValue: r[1] } : {
-    minValue: p(s.map((e) => p(e.y))),
-    maxValue: u(s.map((e) => u(e.y)))
-  }, [r, s]);
+  const { visibleStartTimeSec: f, visibleEndTimeSec: h, reportTotalTimeRange: g, setVisibleTimeRange: b } = Z(), { datasets: S, series: T, legendOpts: w, timeOffset: x, yRange: r, gridlineOpts: I, hideToolbar: R } = o, s = d(
+    () => T.map((e) => {
+      const t = S.filter((F) => F.name === e.dataset)[0];
+      if (t === void 0)
+        throw Error(`Dataset not found in series: ${e.dataset}`);
+      return {
+        ...e,
+        t: t.data[e.encoding.t],
+        y: t.data[e.encoding.y]
+      };
+    }),
+    [T, S]
+  ), { minTime: D, maxTime: C } = d(
+    () => ({
+      minTime: p(s.map((e) => p(e.t))),
+      maxTime: u(s.map((e) => u(e.t)))
+    }),
+    [s]
+  ), { minValue: c, maxValue: l } = d(
+    () => r ? { minValue: r[0], maxValue: r[1] } : {
+      minValue: p(s.map((e) => p(e.y))),
+      maxValue: u(s.map((e) => u(e.y)))
+    },
+    [r, s]
+  );
   m(() => {
     const e = D + (x || 0), t = C + (x || 0);
     g(e, t), b(e, t);
   }, [D, C, x, g, b]);
-  const { canvasWidth: W, canvasHeight: E, margins: k } = j({ width: i, height: n, hideToolbar: R }), [H, P] = y(!1), [v, V] = y(), [a, A] = y(null);
+  const { canvasWidth: W, canvasHeight: E, margins: k } = j({
+    width: i,
+    height: n,
+    hideToolbar: R
+  }), [H, P] = y(!1), [v, V] = y(), [a, A] = y(null);
   m(() => {
     if (!v)
       return;
-    const e = new Worker(URL.createObjectURL(new Blob([z], { type: "text/javascript" })), { type: "module" }), t = v.transferControlToOffscreen();
-    return e.postMessage({
-      canvas: t
-    }, [t]), A(e), () => {
+    const e = new Worker(URL.createObjectURL(new Blob([z], { type: "text/javascript" })), {
+      type: "module"
+    }), t = v.transferControlToOffscreen();
+    return e.postMessage(
+      {
+        canvas: t
+      },
+      [t]
+    ), A(e), () => {
       e.terminate();
     };
   }, [v]), m(() => {
@@ -410,14 +428,28 @@ function sleepMsec(msec) {
     a.postMessage({
       opts: e
     });
-  }, [W, E, k, f, h, a, H, w, c, l]);
+  }, [
+    W,
+    E,
+    k,
+    f,
+    h,
+    a,
+    H,
+    w,
+    c,
+    l
+  ]);
   const L = O((e) => {
     e.key === "l" && P((t) => !t);
-  }, []), M = d(() => ({
-    showTicks: !0,
-    yMin: c,
-    yMax: l
-  }), [c, l]);
+  }, []), M = d(
+    () => ({
+      showTicks: !0,
+      yMin: c,
+      yMax: l
+    }),
+    [c, l]
+  );
   return /* @__PURE__ */ $(
     q,
     {

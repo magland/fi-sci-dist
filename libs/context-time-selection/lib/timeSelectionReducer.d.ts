@@ -1,4 +1,4 @@
-import { TimeSelection } from "./TimeSelection";
+import { TimeSelection } from './TimeSelection';
 export type TimeSelectionAction = {
     type: 'report_total_time_range';
     startTimeSec: number;

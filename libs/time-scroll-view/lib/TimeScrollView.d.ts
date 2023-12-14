@@ -24,7 +24,7 @@ type Props = {
     showTimeSelectionBar?: boolean;
     leftMargin?: number;
 };
-export declare const useTimeScrollView: ({ width, height, hideToolbar, leftMargin }: {
+export declare const useTimeScrollView: ({ width, height, hideToolbar, leftMargin, }: {
     width: number;
     height: number;
     hideToolbar?: boolean | undefined;
